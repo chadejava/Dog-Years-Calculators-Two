@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <title>Dog Year Calculator</title>
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <style>
+            #blockRed
+            {
+                background:#ff0000;
+                height:50px;
+                width:50px;
+            }
+        </style>
+        <script>
+            var xPos = 0;
+            window.onload = function()
+            {
+                var outc = "";
+                outc += "Version:" + device.cordova;
+                outc += "<br>Model:" + device.model;
+                outc += "<br>Platform:" + device.platform;
+                outc += "<br>UUID:" + device.uuid;
+                outc += "<br>Version:" + device.version;
+                outc += "<br>Manufacturer:" + device.manufacturer;
+                outc += "<br>Serial:" + device.serial;
+                document.getElementById('devInfo').innerHTML = outc;
+                var watchID = navigator.accelerometer.watchAcceleration(success, fail, { frequency: 100 });
+            }
+
+            function success(accel)
+            {
+                if (accel.x < 0) {
+                    xPos += Math.abs(accel.x);
+                } else {
+                    xPos -= Math.abs(accel.x);
+                }
+                document.getElementById('blockRed').style.marginLeft = xPos + 'px';
+
+                document.getElementById('outX').innerHTML = accel.x;
+                document.getElementById('outY').innerHTML = accel.y;
+                document.getElementById('outZ').innerHTML = accel.z;
+            }
+
+            function fail(e) {
+                alert('Acc error!');
+            }
+        </script>
+    </head>
+    <body>
+        <div data-role="page">
+            <div data-role="header" id="page1">
+                <h1>Flying on the air</h1>
+            </div> <!-- header -->
+            
+
+            <div data-role="main" class="ui-content">
+                <div id="devInfo"></div>
+                <div id="blockRed"></div>
+                <p>X:<output id="outX"></output></p>
+                <p>Y:<output id="outY"></output></p>
+                <p>Z:<output id="outZ"></output></p>
+
+            </div> <!-- main -->
+            <div data-role="footer">
+                <h2>Chacha is learning this!</h2>
+            </div>
+        </div> <!-- page -->
+
+        <script type="text/javascript" src="cordova.js"></script>
+    </body>
+</html>

@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <title>Dog Year Calculator</title>
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <script>
+            window.onload = function()
+            {
+                document.getElementById("btnCalc1").addEventListener("click", calcAge);
+            }
+
+            function calcAge(e)
+            {
+                var age = document.getElementById("dogAge1").value;
+                age = age * 7;
+                var result = "In dog years, your age is: " + age;
+                document.getElementById("result1").innerHTML = result;
+            }
+
+        </script>
+    </head>
+    <body>
+        <div data-role="page">
+            <div data-role="header" id="page1">
+                <h1>Dog Year Calculator</h1>
+            </div> <!-- header -->
+            
+
+            <div data-role="main" class="ui-content">
+                <div>
+                    <label for="MyFlip">Flip Flop Switch</label>
+                    <input type="checkbox" id="MyFlip" data-role="flipswitch" />
+                </div>
+
+                <div>
+                    <ul data-role="listview">
+                        <li><a href="#">Kodok</a></li>
+                        <li><a href="#">Monyet</a></li>
+                        <li><a href="#">Gajah</a></li>
+                        <li><a href="#">Jerapah</a></li>
+                        <li><a href="#">Kucing</a></li>
+                    </ul>
+                </div>
+
+                <fieldset data-role="controlgroup">
+                    <legend>My Chessmen:</legend>
+                    <input type="checkbox" name="king" id="king" />
+                    <label for="king">King</label>
+                    <input type="checkbox" name="queen" id="queen" />
+                    <label for="queen">Queen</label>
+                    <input type="checkbox" name="bishop" id="bishop" />
+                    <label for="bishop">Bishop</label>
+                    <input type="checkbox" name="rook" id="rook" />
+                    <label for="rook">Rook</label>
+                    <input type="checkbox" name="knight" id="knight" />
+                    <label for="knight">Knight</label>
+                    <input type="checkbox" name="pawn" id="pawn" />
+                    <label for="pawn">Pawn</label>
+                </fieldset>
+
+
+                <div data-role="collapsible-set">
+                    <div data-role="collapsible" data-collapsed="false">
+                        <h3>Collapse This One :)</h3>
+                        <p>Ho ho ho ho ho ho ho ho ho.</p>
+                    </div> <!--collapsible-->
+                    <div data-role="collapsible" data-collapsed="true">
+                        <h3>Collapse This Tow :)</h3>
+                        <p>Hi hi hi hi.</p>
+                    </div> <!--collapsible-->
+                    <div data-role="collapsible" data-collapsed="true">
+                        <h3>Collapse This Three :)</h3>
+                        <p>He he he he.</p>
+                    </div> <!--collapsible-->
+                </div> <!--collapsible set-->
+                <label for="dogAge1">Dog Age In Human Years:</label>
+                <input id="dogAge1" type="number" />
+                <button id="btnCalc1">Calculate</button>
+                <div id="result1"></div>
+                <button id="btnGoNextOne" onclick="location.href='index.html#page2'">Go Next Page</button>
+            </div> <!-- main -->
+            <div data-role="footer">
+                <h2>Chacha is learning this!</h2>
+            </div>
+        </div> <!-- page -->
+
+        <!--<div data-role="page" id="page2">
+            <div data-role="header">
+                <h1>Cat Year Calculator</h1>
+            </div> <!-- header -->
+            <div data-role="main" class="ui-content">
+                <label for="dogAge2">Cat Age In Human Years:</label>
+                <input id="dogAge2" type="number" />
+                <div id="result2"></div>
+            </div> <!-- main -->
+            <div data-role="footer">
+                <h2>Chacha is learning this!</h2>
+            </div>
+        </div> <!-- page -->-->
+
+        <script type="text/javascript" src="cordova.js"></script>
+    </body>
+</html>
